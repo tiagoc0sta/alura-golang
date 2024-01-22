@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+	"os"
+)
 
 func main() {
 
@@ -8,7 +12,7 @@ func main() {
 	exibeMenu()
 	comando := leComando() 
 
-	/*if comando == 1 {
+	/*if comando == 1 {                 // if no golang sempre retorna booleano (true or false)
 		fmt.Println("Monitorando..")
 	} else if comando == 2 {
 		fmt.Println("Exibindo logs..")
@@ -19,16 +23,19 @@ func main() {
 	}*/
 
 	switch comando {
-		case 1:
-			fmt.Println("1- Iniciar Monitoramento")
+		case 1:			
+			iniciarMonitoramento()
 		case 2:
 			fmt.Println("Exibindo logs..")
 		case 0:
 			fmt.Println("Saindo do Programa")
+			os.Exit(0)
 		default:
 			fmt.Println("Não conheço este comando")
+			os.Exit(-1) // indica que ocorreu algum erro no programa
 	}
 }
+
 
 func exibeIntroducao(){
 	nome := "Tiago"
@@ -50,5 +57,12 @@ func leComando() int {
 	fmt.Println("O comando escolhido foi", comandoLido)
 
 	return comandoLido
+}
 
+
+func iniciarMonitoramento() {
+	fmt.Println("1- Iniciar Monitoramento")
+	site := "https://www.alura.com.br"
+	resp, _ := http.Get(site)
+	fmt.Println(resp)	 
 }
