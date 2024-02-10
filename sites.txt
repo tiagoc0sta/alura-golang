@@ -1,0 +1,4 @@
+https://www.alura.com.br
+https://httpbin.org/status/40 
+https://www.caelum.com.br
+https://www.globo.com

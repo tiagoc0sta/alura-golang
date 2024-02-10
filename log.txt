@@ -1,0 +1,8 @@
+10/02/2024 12:43:10 - https://www.alura.com.br - online: true
+10/02/2024 12:43:10 - https://httpbin.org/status/40 - online: false
+10/02/2024 12:43:11 - https://www.caelum.com.br - online: true
+10/02/2024 12:43:11 - https://www.globo.com - online: true
+10/02/2024 12:43:16 - https://www.alura.com.br - online: true
+10/02/2024 12:43:16 - https://httpbin.org/status/40 - online: false
+10/02/2024 12:43:17 - https://www.caelum.com.br - online: true
+10/02/2024 12:43:17 - https://www.globo.com - online: true
