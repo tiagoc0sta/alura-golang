@@ -74,8 +74,10 @@ func leComando() int {
 
 func iniciarMonitoramento() {
 	fmt.Println("Monitorando...")	
-	sites:= []string{"https://httpbin.org/status/40", "https://www.alura.com.br", "https://www.caelum.com.br"}
+	//sites:= []string{"https://httpbin.org/status/40", "https://www.alura.com.br", "https://www.caelum.com.br"}
 	
+	sites := lerSitesDoArquivo()
+
 	//example using for loop
 	/*for i:=0; i< len(sites); i++ {
 		fmt.Println(sites[i])		
@@ -96,12 +98,32 @@ func iniciarMonitoramento() {
 }
 
 func testaSite(site string) {
-	resp, _ := http.Get(site)
+	resp, err := http.Get(site)
+
+	if err != nil {
+		fmt.Println("Ocorreu um erro: ", err)
+	}
 
 	if resp.StatusCode == 200 {
 			fmt.Println("Site:", site, "foi carregado com sucesso!")
 	} else {
 			fmt.Println("Site:", site, "está com problemas. Status Code:", resp.StatusCode)
 	}
+
+}
+
+
+func lerSitesDoArquivo()[]string {
+
+	var sites []string
+
+	arquivo, err := os.Open("sites.txt")
+
+	if err != nil {
+		fmt.Println("Ocorreu um erro: ", err)
+	}
+
+	fmt.Println(arquivo)
+	return sites
 
 }
